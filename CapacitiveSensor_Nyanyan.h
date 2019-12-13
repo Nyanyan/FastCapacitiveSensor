@@ -1,5 +1,14 @@
 #include "Arduino.h"
 
+#ifndef FREQUENCY
+#define FREQUENCY 20
+#endif
+
+#ifndef BREAKTHRESHOLD
+#define BREAKTHRESHOLD 50
+#endif
+
 namespace CapasitiveSensor {
-  float touch(int send, int receive);
+  void begin();
+  double touch(int send, int receive);
 }

@@ -35,7 +35,7 @@ double CapasitiveSensor::touch(int send, int receive, double voltage) {
       }
     }
     digitalWrite(send, LOW);
-    delayMicroseconds(200);
+    delayMicroseconds(10);
 
     if (val > 0) {
       VAL[i] = val;
@@ -44,10 +44,10 @@ double CapasitiveSensor::touch(int send, int receive, double voltage) {
   }
   sort(VAL);
   double VALsum = 0;
-  int except = t * 0.1 + 1;
-  for (int i = except;i < t - except;i++)
+  int except = FREQUENCY * EXCEPTRATIO + 1;
+  for (int i = except;i < FREQUENCY - except;i++)
     VALsum += VAL[i];
-  int tmp = t - 2 * except;
+  int tmp = FREQUENCY - 2 * except;
   //Serial.print(VAL1sum / tmp);
   //Serial.print("\t");
   //Serial.print(VAL2sum / tmp);

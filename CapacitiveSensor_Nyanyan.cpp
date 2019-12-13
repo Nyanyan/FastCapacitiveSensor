@@ -2,9 +2,9 @@
 #include <math.h>
 
 static void swap(double* a, double* b) {
-  double t = *a;
+  double c = *a;
   *a = *b;
-  *b = t;
+  *b = c;
 }
 
 static void sort(double* array) {

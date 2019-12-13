@@ -9,6 +9,5 @@
 #endif
 
 namespace CapasitiveSensor {
-  void begin();
-  double touch(int send, int receive);
+  double touch(int send, int receive, double voltage);
 }

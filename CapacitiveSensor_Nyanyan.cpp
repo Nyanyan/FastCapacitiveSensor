@@ -1,23 +1,23 @@
 #include "CapacitiveSensor_Nyanyan.h"
 #include <math.h>
 
-static void swap(float* a, float* b) {
-  float t = *a;
+static void swap(double* a, double* b) {
+  double t = *a;
   *a = *b;
   *b = t;
 }
 
-static void sort(float* array) {
-  int size = sizeof(array) / sizeof(float);
+static void sort(double* array) {
+  int size = sizeof(array) / sizeof(double);
   for(int i = 0;i < size;i++)
     for(int j = size - 1;j > i; j--)
       if(array[j] < array[j - 1])
         swap(&array[j], &array[j - 1]);
 }
 
-double CapasitiveSensor::touch(int send, int receive) {
+double CapasitiveSensor::touch(int send, int receive, double voltage) {
   double VAL[FREQUENCY];
-  double INPUTTHRESHOLD = 1024 * 0.9;
+  double INPUTTHRESHOLD = voltage * 1024 / 5 * 0.9;
 
   for (int i = 0; i < FREQUENCY; i++) {
     float val = 0;
@@ -43,7 +43,7 @@ double CapasitiveSensor::touch(int send, int receive) {
       i--;
   }
   sort(VAL);
-  float VALsum = 0;
+  double VALsum = 0;
   int except = t * 0.1 + 1;
   for (int i = except;i < t - except;i++)
     VALsum += VAL[i];

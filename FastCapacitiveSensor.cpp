@@ -1,5 +1,8 @@
-#include "CapacitiveSensor_Nyanyan.h"
+#include "FastCapacitiveSensor.h"
 #include <math.h>
+
+FastCapacitiveSensor::FastCapacitiveSensor() {
+}
 
 static void swap(double* a, double* b) {
   double c = *a;
@@ -15,7 +18,7 @@ static void sort(double* array) {
         swap(&array[j], &array[j - 1]);
 }
 
-void CapacitiveSensor::begin(int send, int receive, double voltage, int frequency, int breakthreshold, double exceptratio) {
+void FastCapacitiveSensor::begin(int send, int receive, double voltage, int frequency, int breakthreshold, double exceptratio) {
   SEND = send;
   RECEIVE = receive;
   VOLTAGE = voltage;
@@ -24,7 +27,7 @@ void CapacitiveSensor::begin(int send, int receive, double voltage, int frequenc
   EXCEPTRATIO = exceptratio;
 }
 
-double CapacitiveSensor::touch() {
+double FastCapacitiveSensor::touch() {
   double VAL[FREQUENCY];
   double INPUTTHRESHOLD = VOLTAGE * 1024 / 5 * 0.9;
 
@@ -53,7 +56,7 @@ double CapacitiveSensor::touch() {
   }
   sort(VAL);
   double VALsum = 0;
-  int except = FREQUENCY * EXCEPTRATIO + 1;
+  int except = FREQUENCY * EXCEPTRATIO;
   for (int i = except;i < FREQUENCY - except;i++)
     VALsum += VAL[i];
   int dev = FREQUENCY - 2 * except;

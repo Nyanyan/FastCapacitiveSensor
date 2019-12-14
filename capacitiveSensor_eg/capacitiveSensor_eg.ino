@@ -1,17 +1,13 @@
-#define FREQUENCY 10000
-#define BREAKTHRESHOLD 1000
-#define EXCEPTRATIO 0.1
-#include <CapacitiveSensor_Nyanyan.h>
-
-#define receivepin A0
-#define sendpin A1
+#include <FastCapacitiveSensor.h>
+FastCapacitiveSensor sensor1;
 
 void setup() {
-  pinMode(receivepin, INPUT);
-  pinMode(sendpin, OUTPUT);
+  pinMode(A1, INPUT);
+  pinMode(A0, OUTPUT);
   Serial.begin(9600);
+  sensor1.begin(A0, A1, 5.0, 20, 10, 0.2);
 }
 
 void loop() {
-  Serial.println(CapacitiveSensor::touch(sendpin, receivepin, 5));
+  Serial.println(sensor1.touch());
 }

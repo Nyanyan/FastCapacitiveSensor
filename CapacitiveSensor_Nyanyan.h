@@ -1,17 +1,18 @@
+#ifndef __CapacitiveSensor_Nyanyan_h__
 #include "Arduino.h"
 
-#ifndef FREQUENCY
-#define FREQUENCY 20
-#endif
+class CapacitiveSensor {
+public:
+  void begin(int send, int receive, double voltage, int frequency, int breakthreshold, double exceptratio);
+  double touch();
 
-#ifndef BREAKTHRESHOLD
-#define BREAKTHRESHOLD 50
-#endif
-
-#ifndef EXCEPTRATIO
-#define EXCEPTRATIO 0.1
-#endif
-
-namespace CapasitiveSensor {
-  double touch(int send, int receive, double voltage);
+private:
+  const int FREQUENCY;
+  const int BREAKTHRESHOLD;
+  const double EXCEPTRATIO;
+  const int SEND;
+  const int RECEIVE;
+  const double VOLTAGE;
 }
+
+#endif

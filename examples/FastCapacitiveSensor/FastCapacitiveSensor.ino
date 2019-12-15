@@ -3,8 +3,8 @@ FastCapacitiveSensor sensor1;
 FastCapacitiveSensor sensor2;
 
 void setup() {
-  pinMode(A1, INPUT);
   pinMode(A0, OUTPUT);
+  pinMode(A1, INPUT);
   pinMode(A2, OUTPUT);
   pinMode(A3, INPUT);
   Serial.begin(9600);

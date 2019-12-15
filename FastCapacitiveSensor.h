@@ -1,5 +1,5 @@
-#ifndef __FastCapacitiveSensor_h__
-#define __FastCapacitiveSensor_h__
+#ifndef FastCapacitiveSensor_h
+#define FastCapacitiveSensor_h
 
 #include "Arduino.h"
 

@@ -24,7 +24,7 @@ Capacitive sensors are pseudo capacitors. Your Arduino will measure the time of 
 
 The equation of the sensed voltage will be:
 $$
-V = V_0(1-e^{\frac{1}{RC}t})
+V = V_0(1-e^{-\frac{1}{RC}t})
 $$
 In this library, the time when $V=0.9V_0$ in units of micro seconds will return.
 

@@ -12,7 +12,7 @@ This library uses math.h.
 
 ![](img/hardwarerequirement.PNG)
 
-The resistor decide the time of charging. receeivePin must be analog input pin.
+The resistor decide the time of charging. receivePin must be analog input pin.
 
 ## How it works
 

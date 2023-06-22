@@ -62,6 +62,9 @@ arguments:
 ```c++
 void begin(sendPin, receivePin, maxVoltage, frequency, breakThreshold, excludeRatio);
 ```
+sendPin is a pin that you can use the function digitalWrite on.
+
+receivePin is read out with analogRead, so it should be an analog pin.
 
 maxVoltage is the voltage of the sendPin. It is $V_0$.
 

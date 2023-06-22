@@ -3,8 +3,8 @@ FastCapacitiveSensor sensor1;
 FastCapacitiveSensor sensor2;
 
 void setup() {
-  pinMode(A0, OUTPUT);
-  pinMode(A1, INPUT);
+  pinMode(A0, OUTPUT); // the send pin should be a pin that can be used with the digitalWrite() function
+  pinMode(A1, INPUT);  // the receive pin MUST be an analog pin. The library uses analogRead() internally.
   pinMode(A2, OUTPUT);
   pinMode(A3, INPUT);
   Serial.begin(9600);
